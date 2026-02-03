@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine Surprise 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", cursive;
+      overflow: hidden;
+      text-align: center;
+    
+
+     /* Animated Background */
+      animation: bg 5s infinite;
+    }
+
+    /* Background Gradient Animation */
+    @keyframes bg {
+      0% {background: pink;}
+      50% {background: lavender;}
+      100% {background: peach;}
+    }
+    
+    /* Card Flip Container */
+    .card-container {
+      width: 350px;
+      height: 400px;
+      margin: 80px auto;
+      perspective: 1000px;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+    
+    /* Card Flip Container */
+    .card-container {
+      width: 350px;
+      height: 400px;
+      margin: 80px auto;
+      perspective: 1000px;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+    
+    /* Card Flip Container */
+    .card-container {
+      width: 350px;
+      height: 400px;
+      margin: 80px auto;
+      perspective: 1000px;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+    
+    /* Flip on Click */
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+    
+    /* Front + Back */
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 25px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    /* Front Side */
+    .front {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Back Side */
+    .back {
+      background: rgba(255, 240, 250, 0.9);
+      transform: rotateY(180deg);
+    }
+
+    h1 {
+      margin-top: 80px;
+      font-size: 2.5rem;
+      color: #d63384;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 12px 25px;
+      margin: 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.1);
+    }
+
+    #noBtn {
+      background: #adb5bd;
+      color: white;
+      position: absolute;
+    }
+
+    #message {
+      font-size: 2rem;
+      color: #ff006e;
+      margin-top: 30px;
+      display: none;
+    }
+
+    /* Floating Hearts Animation */
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+
+    /* Mobile Friendly */
+    @media (max-width: 600px) {
+      .card-container {
+        width: 90%;
+        height: 380px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      button {
+        width: 140px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<pre>
+  <h1>💖 Hey viky!!
+    Will You Be My Valentine? 💖</h1>
+  </pre>
+
+  <div class="container">
+    <button id="yesBtn">Yes ❤️</button>
+    <button id="noBtn">No 💔</button>
+  </div>
+
+  <div id="message">
+    <img src="https://media.tenor.com/O3QyeZpDgn8AAAAC/yay.gif" alt="happy dance" width="200"><br>
+    Yayyy!! 🥰💘 Happy Valentine’s Day Doctree ❤️
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const message = document.getElementById("message");
+
+    // YES button click
+    yesBtn.addEventListener("click", () => {
+      message.style.display = "block";
+    });
+
+    // NO button runs away
+    noBtn.addEventListener("mouseover", () => {
+      let x = Math.random() * (window.innerWidth - 100);
+      let y = Math.random() * (window.innerHeight - 50);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    // Floating hearts generator
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
